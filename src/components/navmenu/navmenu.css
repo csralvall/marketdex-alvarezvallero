@@ -1,0 +1,19 @@
+.nav-menu-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  list-style: none;
+}
+
+.nav-menu-item a {
+  padding: 0.2em 0.5em;
+	color: var(--text-primary-color);
+  text-decoration: none;
+}
+
+.nav-menu-item a:hover {
+  border-radius: 2em;
+  background-color: var(--light-primary-color);
+}
+
