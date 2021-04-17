@@ -1,9 +1,9 @@
 .nav-bar {
   display: flex;
-  overflow: hidden;
+  overflow-x: hidden;
   align-items: center;
   justify-content: space-between;
-  padding: 0.2em 0.5em;
+  padding: 0.2em 7em;
   background-color: var(--default-primary-color);
 	color: var(--text-primary-color);
 }
