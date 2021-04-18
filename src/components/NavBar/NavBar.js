@@ -1,8 +1,10 @@
-import './navbar.css';
+import './NavBar.css';
+
 import ecommerceLogo from '../../img/png/ecommerce_logo.png'
 
-import { NavMenu } from '../navmenu/navmenu'
-import { NavSearch } from '../navsearch/navsearch'
+import { NavMenu } from '../NavMenu/NavMenu'
+import { NavSearch } from '../NavSearch/NavSearch'
+import { CartWidget } from '../CartWidget/CartWidget'
 
 export const NavBar = () => {
   return (
@@ -14,6 +16,7 @@ export const NavBar = () => {
       />
       <NavSearch />
       <NavMenu />
+      <CartWidget />
     </header>
   );
 }

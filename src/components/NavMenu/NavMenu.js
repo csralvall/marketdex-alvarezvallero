@@ -1,4 +1,4 @@
-import './navmenu.css'
+import './NavMenu.css'
 
 export const NavMenu = () => {
   return (
