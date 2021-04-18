@@ -1,0 +1,7 @@
+.cart-widget-button {
+  padding: 0;
+  cursor: pointer;
+  background: var(--default-primary-color);
+  border: none;
+  outline: none;
+}
