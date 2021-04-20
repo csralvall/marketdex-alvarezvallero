@@ -23,7 +23,7 @@ function App() {
     {
       title: "Remera",
       price: "45",
-      description: "Se la olvido un cliente en el cambiador",
+      description: "Se la olvido un cliente",
     },
     {
       title: "Shorts",
@@ -35,7 +35,6 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <ItemList products={products} />
       <ItemList products={products} />
     </div>
   );
