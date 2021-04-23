@@ -1,0 +1,57 @@
+.item-selector-cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 13em;
+  height: 10em;
+  border: none;
+  border-radius: 0.3em;
+  background-color: var(--light-primary-color);
+}
+
+.product-placeholder {
+}
+
+.item-count-container {
+  display: flex;
+  height: 2em;
+  border: 1px solid var(--divider-color);
+  border-radius: 0.3em;
+  line-height: 0.07em;
+}
+
+.item-count-container > button {
+  padding: 0;
+  width: 2em;
+  background-color: transparent;
+  border: none;
+  color: var(--accent-color);
+  text-align: center;
+  font-size: 1.45em;
+  cursor: pointer;
+}
+
+.decrement-button {
+  width: 10%;
+}
+
+.increment-button {
+  width: 10%;
+}
+
+.item-count-value {
+  width: 80%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.add-to-cart-button {
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  width: 100%;
+  height: 3em;
+  background: transparent;
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+
