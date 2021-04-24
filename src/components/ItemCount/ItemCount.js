@@ -7,12 +7,10 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
 
   const increment = () => {
     if (count < stock) setCount(count + 1);
-    console.log(count)
   }
 
   const decrement = () => {
     if (count > 0) setCount(count - 1);
-    console.log(count)
   }
 
   return (
@@ -27,7 +25,7 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
           +
         </button>
       </div>
-      <button className='add-to-cart-button' onClick={onAdd}>
+      <button className='add-to-cart-button' onClick={() => onAdd(count)}>
         Add to cart
       </button>
     </div>
