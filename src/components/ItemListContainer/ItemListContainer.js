@@ -1,18 +1,25 @@
-import './ItemListContainer.css'
+import { useState, useEffect } from 'react';
 
-import { Item } from '../Item/Item'
+import { ItemList } from '../ItemList/ItemList';
 
-export const ItemList = ({ products }) => {
+export const ItemListContainer = () => {
+  const [items, setItems] = useState([])
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      const response = await fetch('https://fakestoreapi.com/products');
+      if (!response.ok) {
+        throw new Error(`HTTP error - status: ${response.status}`);
+      } else {
+        const fetchedItems = await response.json()
+        setItems(fetchedItems);
+      }
+    }
+    fetchItems();
+	}, [])
+
+
   return (
-    <ul className="product-list">
-      {products.map((product, id) => (
-        <Item
-          key={id.toString()}
-          title={product.title}
-          price={product.price}
-          description={product.description}
-        />
-      ))}
-    </ul>
+    <ItemList products={items} />
   );
 }
