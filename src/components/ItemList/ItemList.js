@@ -11,6 +11,7 @@ export const ItemList = ({ products }) => {
             title={product.title}
             price={product.price}
             description={product.description}
+            image={product.image}
           />
         ))}
     </ul>
