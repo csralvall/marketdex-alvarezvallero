@@ -1,7 +1,6 @@
 import './Item.css'
 
-export const Item = ( { title, price, description, image } ) => {
-  console.log(image);
+export const Item = ( { title, price, image } ) => {
   return (
     <li className='product-item'>
       <h2 className='product-name'>{title}</h2>
