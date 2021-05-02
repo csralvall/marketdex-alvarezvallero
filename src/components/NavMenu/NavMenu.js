@@ -5,16 +5,16 @@ export const NavMenu = () => {
     <nav className="nav-menu">
       <ul className="nav-menu-list">
         <li className="nav-menu-item">
-          <a href=''>Categorias</a>
+          <a href=''>Categories</a>
         </li>
         <li className="nav-menu-item">
-          <a href=''>Ofertas</a>
+          <a href=''>Offers</a>
         </li>
         <li className="nav-menu-item">
-          <a href=''>Historial</a>
+          <a href=''>History</a>
         </li>
         <li className="nav-menu-item">
-          <a href=''>Ayuda</a>
+          <a href=''>Help</a>
         </li>
       </ul>
     </nav>
