@@ -1,0 +1,46 @@
+.product-detail {
+  display: flex;
+  margin: 2.5em auto;
+  width: 80vw;
+  height: 80vh;
+  border: 0.2em solid var(--light-primary-color);
+  border-radius: 0.5em;
+  position: relative;
+}
+
+.product-detail-info {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2%;
+}
+
+.product-detail-name {
+  order: 1;
+  align-self: center;
+}
+
+.product-detail-price {
+  order: 3;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.product-detail-description {
+  order: 2;
+  margin: 1% 0;
+  text-align: justify;
+  align-self: start;
+  height: 20em;
+  max-height: 20em;
+  overflow: hidden;
+}
+
+.product-detail-image {
+  padding: 5% 5%;
+  min-width: 45%;
+  height: auto;
+}
+
+.product-detail-count {
+  order: 4;
+}
