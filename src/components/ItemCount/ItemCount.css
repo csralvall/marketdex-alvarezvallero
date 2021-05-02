@@ -2,14 +2,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 13em;
+  width: 100%;
   height: 10em;
   border: none;
   border-radius: 0.3em;
   background-color: var(--light-primary-color);
 }
 
-.product-placeholder {
+.item-stock {
+  text-align: center;
 }
 
 .item-count-container {

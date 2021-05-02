@@ -15,7 +15,7 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
 
   return (
     <div className='item-selector-cart'>
-      <p className='product-placeholder'>Tiger Shirt</p>
+      <p className='item-stock'>Stock available</p>
       <div className='item-count-container'>
         <button className='increment-button' onClick={decrement}>
           −
