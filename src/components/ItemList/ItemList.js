@@ -8,9 +8,9 @@ export const ItemList = ({ products }) => {
         {products.map((product) => (
           <Item
             key={product.id.toString()}
+            itemId={product.id.toString()}
             title={product.title}
             price={product.price}
-            description={product.description}
             image={product.image}
           />
         ))}

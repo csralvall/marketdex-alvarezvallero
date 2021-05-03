@@ -1,6 +1,8 @@
 .product-list {
-  padding: 0 3%;
+  padding: 0;
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
-  justify-content: space-between;
+  justify-content: space-around;
+  overflow: hidden;
 }
