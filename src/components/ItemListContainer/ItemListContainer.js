@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 
 import { ItemList } from '../ItemList/ItemList';
 
-export const ItemListContainer = () => {
+export const ItemListContainer = ({ extraPath='' }) => {
   const [items, setItems] = useState([])
 
   useEffect(() => {
+    let mounted = true;
     const fetchItems = async () => {
-      const response = await fetch('https://fakestoreapi.com/products?limit=5');
+      const response = await fetch(`https://fakestoreapi.com/products/${extraPath}`);
       if (!response.ok) {
         throw new Error(`HTTP error - status: ${response.status}`);
       } else {
@@ -15,8 +16,11 @@ export const ItemListContainer = () => {
         setItems(fetchedItems);
       }
     }
-    fetchItems();
-	}, [])
+    if(mounted) {
+      fetchItems();
+    }
+    return () => mounted = false;
+	}, [extraPath])
 
 
   return (

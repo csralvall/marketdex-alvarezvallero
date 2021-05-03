@@ -1,13 +1,15 @@
 import { ItemDetail } from '../ItemDetail/ItemDetail'
 
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router'
 
 export const ItemDetailContainer = () => {
+  const { itemId } = useParams()
   const [item, setItem] = useState([])
 
   useEffect(() => {
     const fetchItem = async () => {
-      const response = await fetch('https://fakestoreapi.com/products/4');
+      const response = await fetch(`https://fakestoreapi.com/products/${itemId}`);
       if (!response.ok) {
         throw new Error(`HTTP error - status: ${response.status}`);
       } else {

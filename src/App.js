@@ -9,16 +9,20 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 function App() {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route exact path='/'>
-          <div className="App">
-            <NavBar />
-            {/*<ItemListContainer />*/}
-            <ItemDetailContainer />
-            <Footer />
-          </div>
-        </Route>
-      </Switch>
+      <div className="App">
+        <NavBar />
+          <Switch>
+            <Route exact path='/' component={ItemListContainer} />
+            <Route exact path='/category/:id'
+              render={(props) => (
+                <ItemListContainer
+                  extraPath={`category/${props.match.params.id}`}
+                />
+            )}/>
+            <Route exact path='/item/:itemId' component={ItemDetailContainer} />
+          </Switch>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
