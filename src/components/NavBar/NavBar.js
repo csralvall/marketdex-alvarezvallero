@@ -1,6 +1,6 @@
 import './NavBar.css';
 
-import ecommerceLogo from '../../img/png/ecommerce_logo.png'
+import ecommerceLogo from '../../assets/png/ecommerce_logo.png'
 
 import { Link } from 'react-router-dom'
 

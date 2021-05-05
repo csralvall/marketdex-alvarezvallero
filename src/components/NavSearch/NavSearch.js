@@ -1,6 +1,6 @@
 import './NavSearch.css'
 
-import magnifyingGlass from '../../img/png/magnifying-glass-search.png'
+import magnifyingGlass from '../../assets/png/magnifying-glass-search.png'
 
 export const NavSearch = () => {
   return (

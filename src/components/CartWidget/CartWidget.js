@@ -1,6 +1,6 @@
 import './CartWidget.css'
 
-import marketBag from '../../img/svg/marketBag.svg'
+import marketBag from '../../assets/svg/marketBag.svg'
 
 export const CartWidget = () => {
   const cartWidgetAlert = () => alert("Aca van tus compras!!");
