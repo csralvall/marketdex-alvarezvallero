@@ -7,6 +7,7 @@ export const DropDown = ({ className, path, entries }) => {
     <div className={className}>
         {entries.map((entry) => (
           <NavLink
+            key={entry} // TODO add unique key identifier
             exact to={`/${path}/${entry}`}
             activeClassName='active-entry-name'
             className='entry-name'>
