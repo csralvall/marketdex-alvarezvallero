@@ -1,6 +1,6 @@
 # Demo
 
-[marketdex demo](./src/assets/gif/navigation_marketdex.gif)
+![marketdex demo](./src/assets/gif/navigation_marketdex.gif)
 
 # Getting Started with Create React App
 
