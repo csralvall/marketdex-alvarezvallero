@@ -1,0 +1,4 @@
+.entry-name:hover {
+  border: 1px solid var(--text-primary-color);
+  border-radius: 0.5em !important;
+}
