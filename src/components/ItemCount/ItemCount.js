@@ -2,7 +2,7 @@ import './ItemCount.css'
 
 import { useState } from 'react';
 
-export const ItemCount = ({ stock, initial, onAdd }) => {
+export const ItemCount = ({ stock, initial, onAdd = (a) => console.log(a) }) => {
   const [count, setCount] = useState(initial);
 
   const increment = () => {
