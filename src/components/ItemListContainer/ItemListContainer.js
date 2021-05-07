@@ -16,10 +16,11 @@ export const ItemListContainer = ({ extraPath='' }) => {
         setItems(fetchedItems);
       }
     }
-    if(mounted) {
-      fetchItems();
-    }
+
+    if(mounted) fetchItems();
+
     return () => mounted = false;
+
 	}, [extraPath])
 
 
