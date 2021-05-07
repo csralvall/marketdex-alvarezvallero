@@ -8,6 +8,7 @@ export const ItemDetailContainer = () => {
   const [item, setItem] = useState([])
 
   useEffect(() => {
+    let mounted = true;
     const fetchItem = async () => {
       const response = await fetch(`https://fakestoreapi.com/products/${itemId}`);
       if (!response.ok) {
@@ -17,7 +18,10 @@ export const ItemDetailContainer = () => {
         setItem(fetchedItem);
       }
     }
-    fetchItem();
+    if(mounted) fetchItem();
+
+    return () => mounted = false;
+
 	}, [])
 
 
