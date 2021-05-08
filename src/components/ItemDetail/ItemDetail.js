@@ -5,21 +5,21 @@ import { Link } from 'react-router-dom'
 
 import { ItemCount } from '../ItemCount/ItemCount'
 
-export const ItemDetail = ({ title, description, image, price }) => {
+export const ItemDetail = ({ title, description, image, price, onBuy}) => {
   const [ quantity, setQuantity ] = useState(0);
   const onAdd = (quantityToAdd) => {
     setQuantity(quantityToAdd);
   };
   const itemCount = <ItemCount stock={5} initial={0} onAdd={onAdd} />;
-  const finishBuy = (
-    <Link to='/cart'>
-      <button className='finish-buy'>Finish buy</button>
-    </Link>
-  );
   const [ cartButton, setCartButton ] = useState(itemCount);
 
   useEffect(() => {
     let mounted = true;
+    const finishBuy = (
+      <Link to='/cart'>
+        <button className='finish-buy' onClick={() => onBuy(quantity)}>Finish buy</button>
+      </Link>
+    );
 
     const setButton = () => {
       if(quantity) setCartButton(finishBuy);
@@ -29,11 +29,11 @@ export const ItemDetail = ({ title, description, image, price }) => {
 
     return () => mounted = false;
 
-  }, [quantity])
+  }, [quantity, onBuy])
 
   return (
     <div className='product-detail'>
-      <img className='product-detail-image' src={image} />
+      <img className='product-detail-image' src={image} alt=''/>
       <div className='product-detail-info'>
         <h2 className='product-detail-name'>{title}</h2>
         <p className='product-detail-price'>$ {price}</p>

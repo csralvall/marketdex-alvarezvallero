@@ -1,10 +1,12 @@
 import { ItemDetail } from '../ItemDetail/ItemDetail'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router'
+import { CartContext } from '../../context/CartContext'
 
 export const ItemDetailContainer = () => {
   const { itemId } = useParams()
+  const { addToCart } = useContext(CartContext);
   const [item, setItem] = useState([])
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export const ItemDetailContainer = () => {
 
     return () => mounted = false;
 
-	}, [])
+	}, [itemId])
 
 
   return (
@@ -31,6 +33,7 @@ export const ItemDetailContainer = () => {
       description={item.description}
       image={item.image}
       price={item.price}
+      onBuy={(count) => addToCart({...item, quantity: count})}
     />
   );
 }
