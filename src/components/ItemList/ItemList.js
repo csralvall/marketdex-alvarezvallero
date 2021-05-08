@@ -4,7 +4,7 @@ import { Item } from '../Item/Item';
 
 export const ItemList = ({ products }) => {
   return (
-    <ul className="product-list">
+    <ul className='product-list'>
         {products.map((product) => (
           <Item
             key={product.id.toString()}

@@ -10,13 +10,14 @@ import { CartWidget } from '../CartWidget/CartWidget'
 
 export const NavBar = () => {
   return (
-    <header className="nav-bar">
+    <header className='nav-bar'>
       <Link to='/'>
         <button className='logo-button'>
           <img
             src={ecommerceLogo}
-            width="180px"
-            height="50px" 
+            alt='commercial logotype'
+            width='180px'
+            height='50px' 
           />
         </button>
       </Link>
