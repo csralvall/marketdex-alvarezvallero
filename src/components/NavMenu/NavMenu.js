@@ -3,6 +3,7 @@ import './NavMenu.css'
 import { DropDown } from '../DropDown/DropDown'
 
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 export const NavMenu = () => {
   const [categories, setCategories] = useState([])
@@ -24,19 +25,19 @@ export const NavMenu = () => {
     <nav className='nav-menu'>
       <ul className='nav-menu-list'>
         <li className='categories'>
-          <a href=''>Categories</a>
+          <Link to=''>Categories</Link>
           <DropDown className='menu-entries'
                     path='category'
                     entries={categories}/>
         </li>
         <li className='nav-menu-item'>
-          <a href=''>Offers</a>
+          <Link to='/offers'>Offers</Link>
         </li>
         <li className='nav-menu-item'>
-          <a href=''>History</a>
+          <Link to='/history'>History</Link>
         </li>
         <li className='nav-menu-item'>
-          <a href=''>Help</a>
+          <Link to='/help'>Help</Link>
         </li>
       </ul>
     </nav>
