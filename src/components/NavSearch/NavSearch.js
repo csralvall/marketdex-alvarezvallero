@@ -14,6 +14,7 @@ export const NavSearch = () => {
       <button type='submit' className='nav-search-button'>
         <img
 					src={magnifyingGlass}
+          alt='button to trigger search'
 				/>
       </button>
     </form>
