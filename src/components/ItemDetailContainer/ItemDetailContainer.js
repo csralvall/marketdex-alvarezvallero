@@ -1,31 +1,20 @@
-import { ItemDetail } from '../ItemDetail/ItemDetail'
+import { ItemDetail } from '../ItemDetail/ItemDetail';
 
-import { useState, useEffect, useContext } from 'react'
-import { useParams } from 'react-router'
-import { CartContext } from '../../context/CartContext'
+import { useState, useEffect, useContext } from 'react';
+import { useParams } from 'react-router';
+
+import { useFetch } from '../../hooks/useFetch';
+import { CartContext } from '../../context/CartContext';
 
 export const ItemDetailContainer = () => {
   const { itemId } = useParams()
   const { addToCart } = useContext(CartContext);
-  const [item, setItem] = useState([])
+  const [url, setUrl] = useState(`https://fakestoreapi.com/products/${itemId}`);
+  const item = useFetch(url, [])['data'];
 
   useEffect(() => {
-    let mounted = true;
-    const fetchItem = async () => {
-      const response = await fetch(`https://fakestoreapi.com/products/${itemId}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error - status: ${response.status}`);
-      } else {
-        const fetchedItem = await response.json()
-        setItem(fetchedItem);
-      }
-    }
-    if(mounted) fetchItem();
-
-    return () => mounted = false;
-
-	}, [itemId])
-
+    setUrl(`https://fakestoreapi.com/products/${itemId}`);
+  }, [itemId]);
 
   return (
     <ItemDetail

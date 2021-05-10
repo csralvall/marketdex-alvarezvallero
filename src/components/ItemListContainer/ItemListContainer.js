@@ -1,28 +1,15 @@
 import { useState, useEffect } from 'react';
 
 import { ItemList } from '../ItemList/ItemList';
+import { useFetch } from '../../hooks/useFetch';
 
 export const ItemListContainer = ({ extraPath='' }) => {
-  const [items, setItems] = useState([])
+  const [url, setUrl] = useState(`https://fakestoreapi.com/products/${extraPath}`);
+  const items = useFetch(url, [])['data'];
 
   useEffect(() => {
-    let mounted = true;
-    const fetchItems = async () => {
-      const response = await fetch(`https://fakestoreapi.com/products/${extraPath}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error - status: ${response.status}`);
-      } else {
-        const fetchedItems = await response.json()
-        setItems(fetchedItems);
-      }
-    }
-
-    if(mounted) fetchItems();
-
-    return () => mounted = false;
-
-	}, [extraPath])
-
+    setUrl(`https://fakestoreapi.com/products/${extraPath}`);
+  }, [extraPath]);
 
   return (
     <ItemList products={items} />

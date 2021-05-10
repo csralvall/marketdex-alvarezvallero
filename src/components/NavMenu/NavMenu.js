@@ -1,25 +1,13 @@
-import './NavMenu.css'
+import './NavMenu.css';
 
-import { DropDown } from '../DropDown/DropDown'
+import { DropDown } from '../DropDown/DropDown';
+import { useFetch } from '../../hooks/useFetch';
 
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export const NavMenu = () => {
-  const [categories, setCategories] = useState([])
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const response = await fetch(`https://fakestoreapi.com/products/categories`);
-      if (!response.ok) {
-        throw new Error(`HTTP error - status: ${response.status}`);
-      } else {
-        const fetchedCategories = await response.json()
-        setCategories(fetchedCategories);
-      }
-    }
-    fetchCategories();
-	}, [])
+  const url = 'https://fakestoreapi.com/products/categories';
+  const categories = useFetch(url, [])['data'];
 
   return (
     <nav className='nav-menu'>
