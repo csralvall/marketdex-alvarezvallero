@@ -2,6 +2,7 @@ import './ItemDetail.css';
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
 import { ItemCount } from '../ItemCount/ItemCount';
 
@@ -42,4 +43,12 @@ export const ItemDetail = ({ title, description, image, price, onBuy}) => {
       </div>
     </div>
   );
+}
+
+ItemDetail.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string,
+  price: PropTypes.number,
+  onBuy: PropTypes.func,
 }

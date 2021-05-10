@@ -1,6 +1,7 @@
 import './DropDown.css';
 
 import { NavLink } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
 export const DropDown = ({ className, path, entries }) => {
   return (
@@ -16,4 +17,10 @@ export const DropDown = ({ className, path, entries }) => {
         ))}
     </div>
   );
+}
+
+DropDown.propTypes = {
+  className: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  entries: PropTypes.arrayOf(PropTypes.string).isRequired,
 }

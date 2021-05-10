@@ -1,6 +1,7 @@
 import './Item.css';
 
 import { NavLink } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
 export const Item = ( { itemId, title, price, image } ) => {
   return (
@@ -20,4 +21,11 @@ export const Item = ( { itemId, title, price, image } ) => {
       </li>
     </ NavLink>
   );
+}
+
+Item.propTypes = {
+  itemId: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
 }

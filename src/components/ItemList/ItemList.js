@@ -1,5 +1,7 @@
 import './ItemList.css';
 
+import { PropTypes } from 'prop-types';
+
 import { Item } from '../Item/Item';
 
 export const ItemList = ({ products }) => {
@@ -16,4 +18,13 @@ export const ItemList = ({ products }) => {
         ))}
     </ul>
   );
+}
+
+ItemList.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+  })),
 }

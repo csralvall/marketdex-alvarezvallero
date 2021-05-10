@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { PropTypes } from 'prop-types';
 
 import { ItemList } from '../ItemList/ItemList';
 import { useFetch } from '../../hooks/useFetch';
@@ -14,4 +15,8 @@ export const ItemListContainer = ({ extraPath='' }) => {
   return (
     <ItemList products={items} />
   );
+}
+
+ItemListContainer.propTypes = {
+  extraPath: PropTypes.string,
 }
