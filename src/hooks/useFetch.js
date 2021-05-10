@@ -13,7 +13,7 @@ export const useFetch = (url, initialValue) => {
       if (!response.ok) {
         throw new Error(`HTTP error - status: ${response.status}`);
       } else {
-        const fetchedJson = await response.json()
+        const fetchedJson = await response.json();
         setData(fetchedJson);
       }
       setLoading(false);

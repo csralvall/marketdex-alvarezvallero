@@ -7,7 +7,7 @@ import { useFetch } from '../../hooks/useFetch';
 import { CartContext } from '../../context/CartContext';
 
 export const ItemDetailContainer = () => {
-  const { itemId } = useParams()
+  const { itemId } = useParams();
   const { addToCart } = useContext(CartContext);
   const [url, setUrl] = useState(`https://fakestoreapi.com/products/${itemId}`);
   const item = useFetch(url, [])['data'];

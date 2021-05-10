@@ -1,12 +1,12 @@
 import './NavBar.css';
 
-import ecommerceLogo from '../../assets/png/ecommerce_logo.png'
+import ecommerceLogo from '../../assets/png/ecommerce_logo.png';
 
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-import { NavMenu } from '../NavMenu/NavMenu'
-import { NavSearch } from '../NavSearch/NavSearch'
-import { CartWidget } from '../CartWidget/CartWidget'
+import { NavMenu } from '../NavMenu/NavMenu';
+import { NavSearch } from '../NavSearch/NavSearch';
+import { CartWidget } from '../CartWidget/CartWidget';
 
 export const NavBar = () => {
   return (

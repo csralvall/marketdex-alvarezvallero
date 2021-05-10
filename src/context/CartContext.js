@@ -1,6 +1,6 @@
-import { createContext, useState, useEffect } from 'react'
+import { createContext, useState, useEffect } from 'react';
 
-export const CartContext = createContext([])
+export const CartContext = createContext([]);
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
@@ -8,7 +8,7 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (item) => {
     const indexToUpdate = cart.findIndex((itemInCart) => {
-      return itemInCart.id === item.id
+      return itemInCart.id === item.id;
     });
 
     if(indexToUpdate < 0) {
@@ -25,7 +25,7 @@ export const CartProvider = ({ children }) => {
   }
 
   const removeFromCart = (itemId) => {
-    const newCart = cart.filter(item => item.id !== itemId)
+    const newCart = cart.filter(item => item.id !== itemId);
     setCart([newCart]);
   }
 
@@ -33,7 +33,7 @@ export const CartProvider = ({ children }) => {
     setCart([]);
   }
 
-  const isInCart = (itemId) => cart.some((item) => item.id === itemId)
+  const isInCart = (itemId) => cart.some((item) => item.id === itemId);
 
   useEffect(() => {
     setQuantity(cart.length);

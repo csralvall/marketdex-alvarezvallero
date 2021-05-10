@@ -1,6 +1,6 @@
-import './DropDown.css'
+import './DropDown.css';
 
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 export const DropDown = ({ className, path, entries }) => {
   return (

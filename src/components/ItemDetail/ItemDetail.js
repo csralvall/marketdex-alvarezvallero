@@ -1,9 +1,9 @@
-import './ItemDetail.css'
+import './ItemDetail.css';
 
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-import { ItemCount } from '../ItemCount/ItemCount'
+import { ItemCount } from '../ItemCount/ItemCount';
 
 export const ItemDetail = ({ title, description, image, price, onBuy}) => {
   const [ quantity, setQuantity ] = useState(0);
