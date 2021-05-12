@@ -26,8 +26,22 @@ export const CartProvider = ({ children }) => {
   }
 
   const removeFromCart = (itemId) => {
-    const newCart = cart.filter(item => item.id !== itemId);
-    setCart(newCart);
+    const indexToUpdate = cart.findIndex((itemInCart) => {
+      return itemInCart.id === itemId;
+    });
+
+    if(indexToUpdate >= 0) {
+      let newCart = cart.filter(item => item.id !== itemId);
+      const newQuantity = cart[indexToUpdate].quantity - 1;
+      if (newQuantity) {
+        newCart = [
+          ...cart.slice(0,indexToUpdate),
+          {...cart[indexToUpdate], quantity: newQuantity},
+          ...cart.slice(indexToUpdate+1)
+        ];
+      }
+      setCart(newCart);
+    }
   }
 
   const clear = () => {
@@ -35,7 +49,6 @@ export const CartProvider = ({ children }) => {
   }
 
   const isInCart = (itemId) => cart.some((item) => item.id === itemId);
-
 
   useEffect(() => {
     const getTotalQuantity = () => {
