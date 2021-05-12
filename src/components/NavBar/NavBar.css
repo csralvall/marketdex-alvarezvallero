@@ -1,6 +1,5 @@
 .nav-bar {
   display: flex;
-  overflow-x: hidden;
   align-items: center;
   justify-content: space-between;
   padding: 0.2em 7em;
