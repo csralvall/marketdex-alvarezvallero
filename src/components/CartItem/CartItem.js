@@ -25,13 +25,13 @@ export const CartItem = ({ itemId, title, image, quantity, price, removeItem }) 
         <button onClick={removeItem} className='remove-item-button'>
           Remove from cart
         </button>
-        <button className='read-item-detail-button'>
-          <NavLink
-            className='to-item-detail'
-            exact to={`item/${itemId}`}>
+        <NavLink
+          className='to-item-detail'
+          exact to={`item/${itemId}`}>
+          <button className='read-item-detail-button'>
             Go to item
-          </NavLink>
-        </button>
+          </button>
+        </NavLink>
         <p className='cart-item-quantity'>{quantity}</p>
       </div>
     </li>
