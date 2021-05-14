@@ -21,8 +21,8 @@ export const CartWidget = () => {
       <svg width='50px' height='50px'>
         <g>
           <circle cx='38' cy='40' r='9'></circle>
-          <text fill='white' x='38' y='40' font-size='10'
-            text-anchor='middle' alignment-baseline='central'>
+          <text x='38' y='40' fontSize='13'
+            textAnchor='middle' alignmentBaseline='central'>
             {(quantity < 100) ? quantity : '...'}
           </text>
         </g>
