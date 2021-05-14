@@ -37,7 +37,7 @@
 
 .cart-item-buttons button {
   height: 3em;
-  width: 16em;
+  width: 100%;
   margin: 1%;
   border: 1px solid var(--accent-color);
   border-radius: 0.5em;
