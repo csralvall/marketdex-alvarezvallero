@@ -17,7 +17,7 @@ export const Cart = () => {
         { quantity ? 
           <Fragment>
             <p>Number of Items: {quantity}</p>
-            <p>Total price: {cost.toFixed(2)}</p>
+            <p>Total price: $ {cost.toFixed(2)}</p>
             <button onClick={clear}>Clear cart</button>
           </Fragment> :
           <Fragment>
