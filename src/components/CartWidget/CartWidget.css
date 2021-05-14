@@ -1,7 +1,28 @@
 .cart-widget-button {
+  position: relative;
   padding: 0;
   cursor: pointer;
   background: var(--default-primary-color);
   border: none;
   outline: none;
+  visibility: hidden;
+}
+
+.with-items {
+  visibility: visible;
+}
+
+.cart-widget-button svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cart-widget-button svg circle {
+  fill: var(--accent-color);
+}
+
+.cart-widget-button svg text {
+  fill: #FFFF;
+  font-weight: bold;
 }
