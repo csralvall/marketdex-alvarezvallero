@@ -3,17 +3,25 @@ import { ItemDetail } from '../ItemDetail/ItemDetail';
 import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router';
 
-import { useFetch } from '../../hooks/useFetch';
 import { CartContext } from '../../context/CartContext';
+import { getFirestore } from '../../firebase/firebase';
 
 export const ItemDetailContainer = () => {
   const { itemId } = useParams();
   const { addToCart } = useContext(CartContext);
-  const [url, setUrl] = useState(`https://fakestoreapi.com/products/${itemId}`);
-  const item = useFetch(url, [])['data'];
+  const [item, setItem] = useState([]);
 
   useEffect(() => {
-    setUrl(`https://fakestoreapi.com/products/${itemId}`);
+    const db = getFirestore();
+    const itemCollection = db.collection('products');
+
+    itemCollection.doc(itemId).onSnapshot((querySnapshot) => {
+      if (querySnapshot.empty) {
+        console.log('No matching documents');
+      }
+      setItem(querySnapshot.data());
+    }, (error) => console.error(error));
+
   }, [itemId]);
 
   return (

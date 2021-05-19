@@ -1,13 +1,28 @@
 import './NavMenu.css';
 
-import { DropDown } from '../DropDown/DropDown';
-import { useFetch } from '../../hooks/useFetch';
-
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import { DropDown } from '../DropDown/DropDown';
+import { getFirestore } from '../../firebase/firebase';
+
 export const NavMenu = () => {
-  const url = 'https://fakestoreapi.com/products/categories';
-  const categories = useFetch(url, [])['data'];
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const db = getFirestore();
+    const itemCollection = db.collection('products');
+
+    itemCollection.onSnapshot((querySnapshot) => {
+      if (querySnapshot.empty) {
+        console.log('No matching documents');
+      }
+      setCategories(
+        [...new Set(querySnapshot.docs.map((doc) => doc.get('category')))]
+      );
+    }, (error) => console.error(error))
+
+  }, []);
 
   return (
     <nav className='nav-menu'>
