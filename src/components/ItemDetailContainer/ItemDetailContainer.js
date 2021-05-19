@@ -30,6 +30,7 @@ export const ItemDetailContainer = () => {
       description={item.description}
       image={item.image}
       price={item.price}
+      stock={item.stock}
       onBuy={(count) => addToCart({...item, quantity: count})}
     />
   );

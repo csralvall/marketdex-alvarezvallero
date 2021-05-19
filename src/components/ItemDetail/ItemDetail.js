@@ -6,12 +6,12 @@ import { PropTypes } from 'prop-types';
 
 import { ItemCount } from '../ItemCount/ItemCount';
 
-export const ItemDetail = ({ title, description, image, price, onBuy}) => {
+export const ItemDetail = ({ title, description, image, price, stock, onBuy}) => {
   const [ quantity, setQuantity ] = useState(0);
   const onAdd = (quantityToAdd) => {
     setQuantity(quantityToAdd);
   };
-  const itemCount = <ItemCount stock={5} initial={0} onAdd={onAdd} />;
+  const itemCount = <ItemCount stock={stock} initial={0} onAdd={onAdd} />;
   const finishBuy = (
     <Link to='/cart'>
       <button className='finish-buy' onClick={() => onBuy(quantity)}>
@@ -40,5 +40,6 @@ ItemDetail.propTypes = {
   description: PropTypes.string,
   image: PropTypes.string,
   price: PropTypes.number,
+  stock: PropTypes.number,
   onBuy: PropTypes.func,
 }

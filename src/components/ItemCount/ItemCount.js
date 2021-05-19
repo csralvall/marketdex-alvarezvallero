@@ -34,7 +34,7 @@ export const ItemCount = ({ stock, initial, onAdd = (a) => console.log(a) }) => 
 }
 
 ItemCount.propTypes = {
-  stock: PropTypes.number.isRequired,
+  stock: PropTypes.number,
   initial: PropTypes.number.isRequired,
   onAdd: PropTypes.func.isRequired,
 }
