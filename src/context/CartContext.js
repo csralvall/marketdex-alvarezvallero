@@ -73,7 +73,6 @@ export const CartProvider = ({ children }) => {
 
     setQuantity(getTotalQuantity());
     setCost(getTotalCost());
-    console.log(cart);
   }, [cart]);
 
   return (
