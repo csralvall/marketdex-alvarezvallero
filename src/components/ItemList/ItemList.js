@@ -9,8 +9,8 @@ export const ItemList = ({ products }) => {
     <ul className='product-list'>
         {products.map((product) => (
           <Item
-            key={product.id.toString()}
-            itemId={product.id.toString()}
+            key={product.id}
+            itemId={product.id}
             title={product.title}
             price={product.price}
             image={product.image}
@@ -22,7 +22,7 @@ export const ItemList = ({ products }) => {
 
 ItemList.propTypes = {
   products: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,

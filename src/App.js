@@ -19,10 +19,8 @@ function App() {
               <Route exact path='/' component={ItemListContainer} />
               <Route exact path='/category/:id'
                 render={(props) => (
-                  <ItemListContainer
-                    extraPath={`category/${props.match.params.id}`}
-                  />
-              )}/>
+                  <ItemListContainer categoryId={props.match.params.id} />
+                )}/>
               <Route exact path='/item/:itemId' component={ItemDetailContainer} />
               <Route exact path='/cart' component={Cart} />
             </Switch>

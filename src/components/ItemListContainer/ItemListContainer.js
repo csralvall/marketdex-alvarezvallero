@@ -2,15 +2,30 @@ import { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 
 import { ItemList } from '../ItemList/ItemList';
-import { useFetch } from '../../hooks/useFetch';
+import { getFirestore } from '../../firebase/firebase';
 
-export const ItemListContainer = ({ extraPath='' }) => {
-  const [url, setUrl] = useState(`https://fakestoreapi.com/products/${extraPath}`);
-  const items = useFetch(url, [])['data'];
+export const ItemListContainer = ({ categoryId='' }) => {
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    setUrl(`https://fakestoreapi.com/products/${extraPath}`);
-  }, [extraPath]);
+    const db = getFirestore();
+    const itemCollection = db.collection('products');
+    let query;
+
+    if(categoryId === '') {
+      query = itemCollection;
+    } else {
+      query = itemCollection.where('category', '==', categoryId);
+    }
+
+    query.onSnapshot((querySnapshot) => {
+      if (querySnapshot.empty) {
+        console.log('No matching documents');
+      }
+      setItems(querySnapshot.docs.map((doc) => doc.data()));
+    }, (error) => console.error(error))
+
+  }, [categoryId]);
 
   return (
     <ItemList products={items} />
@@ -18,5 +33,5 @@ export const ItemListContainer = ({ extraPath='' }) => {
 }
 
 ItemListContainer.propTypes = {
-  extraPath: PropTypes.string,
+  categoryId: PropTypes.string,
 }
