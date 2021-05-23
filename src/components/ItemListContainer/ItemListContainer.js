@@ -18,12 +18,14 @@ export const ItemListContainer = ({ categoryId='' }) => {
       query = itemCollection.where('category', '==', categoryId);
     }
 
-    query.onSnapshot((querySnapshot) => {
+    const unsuscribe = query.onSnapshot((querySnapshot) => {
       if (querySnapshot.empty) {
         console.log('No matching documents');
       }
       setItems(querySnapshot.docs.map((doc) => doc.data()));
     }, (error) => console.error(error))
+
+    return () => unsuscribe();
 
   }, [categoryId]);
 

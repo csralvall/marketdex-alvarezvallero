@@ -15,12 +15,14 @@ export const ItemDetailContainer = () => {
     const db = getFirestore();
     const itemCollection = db.collection('products');
 
-    itemCollection.doc(itemId).onSnapshot((querySnapshot) => {
+    const unsuscribe = itemCollection.doc(itemId).onSnapshot((querySnapshot) => {
       if (querySnapshot.empty) {
         console.log('No matching documents');
       }
       setItem(querySnapshot.data());
     }, (error) => console.error(error));
+
+    return () => unsuscribe();
 
   }, [itemId]);
 
