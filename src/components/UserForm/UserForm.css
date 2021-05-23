@@ -1,0 +1,25 @@
+.user-form {
+  display: flex;
+  flex-direction: column;
+  margin: auto 2% 1%;
+  padding: 1% 2%;
+  justify-content: space-between;
+  font-size: x-large;
+  background-color: var(--light-primary-color);
+}
+
+.fields {
+  margin: auto;
+}
+
+.user-form button {
+  width: 21em;
+  height: 2em;
+  margin: auto;
+  font-size: x-large;
+  border-radius: 0.5em;
+  border: 1px solid var(--divider-color);
+  background-color: var(--divider-color);
+  cursor: pointer;
+  outline: none;
+}
