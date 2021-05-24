@@ -13,18 +13,21 @@ export const UserForm = ({ onSubmit }) => {
       id:'name',
       label: 'Name',
       value: form.name,
+      validation: "^[a-zA-Z ,.'-]+$",
       required: true,
     },
     {
       id:'phone',
       label: 'Phone',
       value: form.phone,
+      validation: "^[0-9]{7,25}$",
       required: true,
     },
     {
       id:'email',
       label: 'Email',
       value: form.email,
+      validation: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:[.]{1}[a-zA-Z0-9-]{2,3})*$",
       required: true,
     },
   ];
@@ -49,18 +52,25 @@ export const UserForm = ({ onSubmit }) => {
   return (
     <form className='user-form' onSubmit={(e) => submitData(e)}>
       <div className='fields'>
-        {formFields.map(({ id, label, value }) => (
+        {formFields.map(({ id, label, value, validation, required }) => (
           <Input
             key={id}
             id={id}
             label={label}
             value={value}
+						validation={validation}
+						required={required}
             onChange={handleForm} />
         ))}
       </div>
       <button disabled={isButtonDisabled} type='submit'>
         Create Order
       </ button>
+      { requiredFields.length ? 
+        <footer className='required-anotation'>
+          * required fields
+        </footer>
+      : null }
     </form>
   );
 }
