@@ -16,7 +16,7 @@ export const ItemCount = ({ stock, initial, onAdd = (a) => console.log(a) }) => 
 
   return (
     <div className='item-selector-cart'>
-      <p className='item-stock'>Stock available</p>
+      <p className='item-stock'>Stock available: {stock}</p>
       <div className='item-count-container'>
         <button className='increment-button' onClick={decrement}>
           −
