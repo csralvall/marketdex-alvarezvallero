@@ -5,11 +5,14 @@
   background: var(--default-primary-color);
   border: none;
   outline: none;
-  visibility: hidden;
 }
 
 .with-items {
   visibility: visible;
+}
+
+.without-items {
+  visibility: hidden;
 }
 
 .cart-widget-button svg {
