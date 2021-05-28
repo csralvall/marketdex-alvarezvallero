@@ -1,4 +1,5 @@
 .product-detail {
+  flex-grow: 1;
   display: flex;
   margin: 2.5em auto;
   width: 80vw;
