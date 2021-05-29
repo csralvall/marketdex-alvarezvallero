@@ -3,7 +3,7 @@ import './Item.css';
 import { NavLink } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 
-export const Item = ( { itemId, title, price, image } ) => {
+export const Item = ( { itemId, title, price, image, category } ) => {
   return (
     <NavLink
       exact to={`/item/${itemId}`}
@@ -12,6 +12,7 @@ export const Item = ( { itemId, title, price, image } ) => {
     >
       <li className='product-item'>
         <h2 className='product-name'>{title}</h2>
+        <h4 className='product-category'>{category}</h4>
         <p className='product-price'>$ {price}</p>
         <img className='product-image' src={image}
           alt=''

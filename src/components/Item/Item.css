@@ -4,7 +4,6 @@
   width: 15em;
   height: 25em;
   min-height: 25em;
-  text-indent: 0.5em;
   justify-content: space-between;
   margin-bottom: 1em;
   padding: 0.2em 0.3em 0.02em;
@@ -18,17 +17,25 @@
   height: auto;
 }
 
+.product-category {
+  order: 2;
+  padding: 0;
+  margin: 0;
+  height: 0;
+  display: flex;
+}
+
 .product-name {
+  order: 3;
   max-width: 100%;
   max-height: 20%;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  order: 2;
 }
 
 .product-name:hover {
-  order: 2;
+  order: 3;
   max-width: 100%;
   max-height: 20%;
   white-space: normal;
@@ -36,7 +43,7 @@
 }
 
 .product-price {
-  order: 3;
+  order: 4;
   max-width: 70%;
   max-height: 20%;
 }
@@ -44,7 +51,8 @@
 .product-image {
   order: 1;
   width: 15em;
-  height: 17.5em;
+  height: 17em;
+  margin-bottom: 0.5em;
   border-radius: 0.5em;
 }
 

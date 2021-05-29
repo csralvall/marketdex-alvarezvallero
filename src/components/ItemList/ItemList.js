@@ -12,6 +12,7 @@ export const ItemList = ({ products }) => {
             key={product.id}
             itemId={product.id}
             title={product.title}
+            category={product.category}
             price={product.price}
             image={product.image}
           />
