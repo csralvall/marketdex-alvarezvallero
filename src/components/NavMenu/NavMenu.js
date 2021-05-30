@@ -33,15 +33,6 @@ export const NavMenu = () => {
                     path='category'
                     entries={categories}/>
         </li>
-        <li className='nav-menu-item'>
-          <Link to='/offers'>Offers</Link>
-        </li>
-        <li className='nav-menu-item'>
-          <Link to='/history'>History</Link>
-        </li>
-        <li className='nav-menu-item'>
-          <Link to='/help'>Help</Link>
-        </li>
       </ul>
     </nav>
   );

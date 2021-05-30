@@ -5,12 +5,12 @@ import ecommerceLogo from '../../assets/png/ecommerce_logo.png';
 import { Link } from 'react-router-dom';
 
 import { NavMenu } from '../NavMenu/NavMenu';
-import { NavSearch } from '../NavSearch/NavSearch';
 import { CartWidget } from '../CartWidget/CartWidget';
 
 export const NavBar = () => {
   return (
     <header className='nav-bar'>
+      <NavMenu />
       <Link to='/'>
         <button className='logo-button'>
           <img
@@ -21,8 +21,6 @@ export const NavBar = () => {
           />
         </button>
       </Link>
-      <NavSearch />
-      <NavMenu />
       <CartWidget />
     </header>
   );
