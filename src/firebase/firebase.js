@@ -3,16 +3,16 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 const config = {
-  apiKey: "AIzaSyA3y-WRu-2olfBJVfW8sUUP85YJo9c20GQ",
-  authDomain: "marketdex-ecommerce.firebaseapp.com",
-  projectId: "marketdex-ecommerce",
-  storageBucket: "marketdex-ecommerce.appspot.com",
-  messagingSenderId: "590253481582",
-  appId: "1:590253481582:web:388c085172bea9f432107f"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
-const ap = !firebase.apps.length ? firebase.initializeApp(config) : firebase.app()
+const app = !firebase.apps.length ? firebase.initializeApp(config) : firebase.app()
 
-export const getFirebase = () => ap;
+export const getFirebase = () => app;
 
-export const getFirestore = () => firebase.firestore(ap);
+export const getFirestore = () => firebase.firestore(app);
