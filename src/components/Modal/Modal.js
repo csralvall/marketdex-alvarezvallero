@@ -10,7 +10,7 @@ export const Modal = ({ children, isShowing, hide }) => (
 					aria-modal
 					aria-hidden
 					tabIndex={-1}
-					role="dialog"
+					role='dialog'
 			>
         <div className='modal'>
           {children}
