@@ -1,4 +1,6 @@
 import './UserForm.css';
+
+import { PropTypes } from 'prop-types';
 import { useState, useEffect, Fragment } from 'react';
 
 import { Input } from '../Input/Input';
@@ -107,4 +109,10 @@ export const UserForm = ({ onSubmit }) => {
         : <Fragment></Fragment> }
     </form>
   );
+}
+
+UserForm.propTypes = {
+  object: PropTypes.shape({
+    onSubmit: PropTypes.func.isRequired,
+  }),
 }

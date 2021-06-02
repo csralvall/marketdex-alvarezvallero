@@ -20,7 +20,9 @@ export const DropDown = ({ className, path, entries }) => {
 }
 
 DropDown.propTypes = {
-  className: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-  entries: PropTypes.arrayOf(PropTypes.string).isRequired,
+  object: PropTypes.exact({
+    className: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    entries: PropTypes.arrayOf(PropTypes.string).isRequired,
+  })
 }

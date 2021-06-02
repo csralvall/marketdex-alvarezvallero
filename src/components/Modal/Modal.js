@@ -1,5 +1,6 @@
 import './Modal.css';
 
+import { PropTypes } from 'prop-types';
 import { createPortal } from 'react-dom';
 
 export const Modal = ({ children, isShowing, hide }) => (
@@ -28,3 +29,11 @@ export const Modal = ({ children, isShowing, hide }) => (
     </div>, document.body
   ) : null
 );
+
+Modal.propTypes = {
+  object: PropTypes.shape({
+    children: PropTypes.element,
+    isShowing: PropTypes.bool.isRequired,
+    hide: PropTypes.func.isRequired,
+  }),
+}

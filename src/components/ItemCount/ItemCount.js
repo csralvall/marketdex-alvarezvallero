@@ -34,8 +34,10 @@ export const ItemCount = ({ stock, initial, onAdd = (a) => console.log(a) }) => 
 }
 
 ItemCount.propTypes = {
-  stock: PropTypes.number,
-  initial: PropTypes.number.isRequired,
-  onAdd: PropTypes.func.isRequired,
+  object: PropTypes.exact({
+    stock: PropTypes.number,
+    initial: PropTypes.number.isRequired,
+    onAdd: PropTypes.func.isRequired,
+  })
 }
 

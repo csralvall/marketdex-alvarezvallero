@@ -57,5 +57,7 @@ export const ItemListContainer = ({ categoryId='' }) => {
 }
 
 ItemListContainer.propTypes = {
-  categoryId: PropTypes.string,
+  object: PropTypes.shape({
+    categoryId: PropTypes.string,
+  }),
 }

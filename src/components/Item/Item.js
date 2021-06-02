@@ -25,8 +25,10 @@ export const Item = ( { itemId, title, price, image, category } ) => {
 }
 
 Item.propTypes = {
-  itemId: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  image: PropTypes.string.isRequired,
+  object: PropTypes.exact({
+    itemId: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+  }),
 }

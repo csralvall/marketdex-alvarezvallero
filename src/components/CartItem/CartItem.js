@@ -1,5 +1,7 @@
 import './CartItem.css';
 
+import { PropTypes } from 'prop-types';
+
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -36,4 +38,15 @@ export const CartItem = ({ itemId, title, image, quantity, price, removeItem }) 
       </div>
     </li>
     );
+}
+
+CartItem.propTypes = {
+  object: PropTypes.exact({
+    itemId: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    removeItem: PropTypes.func.isRequired,
+  })
 }

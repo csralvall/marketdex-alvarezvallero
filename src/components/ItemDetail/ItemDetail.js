@@ -36,10 +36,12 @@ export const ItemDetail = ({ title, description, image, price, stock, onBuy}) =>
 }
 
 ItemDetail.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  price: PropTypes.number,
-  stock: PropTypes.number,
-  onBuy: PropTypes.func,
+  object: PropTypes.exact({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    image: PropTypes.string,
+    price: PropTypes.number,
+    stock: PropTypes.number,
+    onBuy: PropTypes.func,
+  }),
 }
