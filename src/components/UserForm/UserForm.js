@@ -36,6 +36,11 @@ export const UserForm = ({ onSubmit }) => {
       confirm: true,
     },
   ];
+  const [confirmationForm, setConfirmationForm] = useState(
+    Object.fromEntries(
+      formFields.filter(({ confirm }) => confirm).map(({id}) => [id, ''])
+    )
+  );
 
   const requiredFields = formFields.filter(({ required }) => required);
 
@@ -51,12 +56,13 @@ export const UserForm = ({ onSubmit }) => {
   };
 
   const handleConfirmation = (id, value) => {
-    (form[id] !== value) ? setIsConfirmed(false) : setIsConfirmed(true);
+    const newForm = { ...form, [id]: value };
+    setConfirmationForm(newForm);
   }
 
-  const setInput = ({id, label, value, validation, required, onChange}) => (
+  const setInput = ({key, id, label, value, validation, required, onChange}) => (
     <Input
-      key={id}
+      key={key}
       id={id}
       label={label}
       value={value}
@@ -65,21 +71,16 @@ export const UserForm = ({ onSubmit }) => {
       onChange={onChange} />
   );
 
-  const setConfirmInput = (prefix, {id, label, validation, required, onChange}) => {
-    const newLabel = (
-      `${prefix[0].toUpperCase()}${prefix.substring(1)} ${label}`
-    );
-    return (
-      <Input
-        key={prefix+id}
-        id={id}
-        label={newLabel}
-        validation={validation}
-        required={required}
-        onChange={onChange} />
-    );
-  };
-  
+  useEffect(() => {
+    for (const id in confirmationForm) {
+      if (form[id] !== confirmationForm[id]) {
+        setIsConfirmed(false);
+      } else {
+        setIsConfirmed(true)
+      };
+    }
+  }, [form, confirmationForm]);
+
   useEffect(() => {
     const isSomeRequiredFieldEmpty = requiredFields.some(({ value }) => !value )
     setIsButtonDisabled(
@@ -90,11 +91,20 @@ export const UserForm = ({ onSubmit }) => {
   return (
     <form className='user-form' onSubmit={(e) => submitData(e)}>
       <div className='fields'>
-        {formFields.map(({confirm, ...input }) => {
-          const fields = [setInput({onChange: handleForm, ...input})]
+        {formFields.map(({confirm, id, label, ...input }) => {
+          const fields = [setInput(
+            {onChange: handleForm, key: id, id, label, ...input}
+          )]
           if (confirm) {
-            const confirmInput = {...input , onChange: handleConfirmation};
-            fields.push(setConfirmInput('confirm', confirmInput));
+            const confirmInput = {
+              ...input,
+              key: 'confirm'+id,
+              label: 'Confirm'+label,
+              id,
+              value: confirmationForm[id],
+              onChange: handleConfirmation,
+            };
+            fields.push(setInput(confirmInput));
           }
           return fields;
         })}
