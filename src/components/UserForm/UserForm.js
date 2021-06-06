@@ -6,7 +6,12 @@ import { useState, useEffect, Fragment } from 'react';
 import { Input } from '../Input/Input';
 
 export const UserForm = ({ onSubmit }) => {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', });
+  const [form, setForm] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    surname: '',
+  });
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [isOrderSubmitted, setIsOrderSubmitted] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -15,6 +20,14 @@ export const UserForm = ({ onSubmit }) => {
       id:'name',
       label: 'Name',
       value: form.name,
+      validation: "^[a-zA-Z ,.'-]+$",
+      required: true,
+      confirm: false,
+    },
+    {
+      id:'surname',
+      label: 'Surname',
+      value: form.surname,
       validation: "^[a-zA-Z ,.'-]+$",
       required: true,
       confirm: false,
@@ -56,7 +69,7 @@ export const UserForm = ({ onSubmit }) => {
   };
 
   const handleConfirmation = (id, value) => {
-    const newForm = { ...form, [id]: value };
+    const newForm = {...form, [id]: value };
     setConfirmationForm(newForm);
   }
 
@@ -99,7 +112,7 @@ export const UserForm = ({ onSubmit }) => {
             const confirmInput = {
               ...input,
               key: 'confirm'+id,
-              label: 'Confirm'+label,
+              label: 'Confirm '+label,
               id,
               value: confirmationForm[id],
               onChange: handleConfirmation,
