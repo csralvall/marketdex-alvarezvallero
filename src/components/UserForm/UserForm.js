@@ -69,7 +69,7 @@ export const UserForm = ({ onSubmit }) => {
   };
 
   const handleConfirmation = (id, value) => {
-    const newForm = {...form, [id]: value };
+    const newForm = {...confirmationForm, [id]: value };
     setConfirmationForm(newForm);
   }
 
