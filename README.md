@@ -1,4 +1,4 @@
-# Demo
+# MarketDex Ecommerce
 
 ![marketdex demo](./src/assets/gif/navigation_marketdex.gif)
 
